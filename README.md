@@ -85,6 +85,4 @@ Acandia AB – [info@acandia.se](mailto:info@acandia.se)
 IoT Developer @ Acandia  
 🔗 https://github.com/aalexanderfc
 
----
 
-### ✅ Let me know if you'd like me to generate the final `README.md` file or push it to your repository via CLI instructions!

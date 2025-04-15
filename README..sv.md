@@ -1,46 +1,45 @@
-
 # 🛰️ Acandia Modbus Dashboard med Ayyeka-integration
 
-Detta portfolioprojekt demonstrerar en säker och skalbar IoT-lösning för att avkoda, visualisera och vidarebefordra telemetridata från **Ayyeka Wavelet-enheter** via **Modbus Dashboard UI**, med möjlighet att även skicka datan till **Ayyeka Cloud**.
+Detta portföljprojekt demonstrerar en säker och skalbar IoT-lösning för att avkoda, visualisera och vidarebefordra telemetridata från **Ayyeka Wavelet-enheter** med hjälp av **Modbus Dashboard UI**, och valfritt vidarebefordra data till **Ayyeka Cloud**.
 
-> 💡 Systemet är helt automatiserat och byggt med **Python**, **MQTT**, **Protobuf**, **Flask** och **Modbus TCP** – och körs på en **Robustel-router**.
+> 💡 Detta är ett fullt automatiserat system byggt med **Python**, **MQTT**, **Protobuf**, **Flask** och **Modbus TCP** – och körs på en **Robustel-router**.
 
 ---
 
 ## 📸 Systemarkitektur
 
-Diagrammet visar arkitekturen för **Ayyeka-varianten** av Modbus Dashboard-systemet:
+Diagrammet nedan visar arkitekturen för **Ayyeka-varianten** av dashboarden:
 
 ![Systemarkitektur](/images/AyyekaDiagram.png)
 
 ---
 
-## 🔧 Funktioner
+## 🔧 Nyckelfunktioner
 
-- ✅ **Avkodar Protobuf-baserad binärdata** från Ayyeka Wavelets via MQTT
-- ✅ **Visualiserar data lokalt** i ett Modbus-inspirerat gränssnitt
-- ✅ **Vidarebefordrar telemetri till Ayyeka Cloud** med enhetsspecifika autentiseringsuppgifter
-- ✅ **Registrerar enheter och tilldelar Modbus-register**
-- ✅ **Exponerar avkodade värden som Modbus-register** för andra system
-- ✅ **Två driftslägen**:
-  - **Endast lokalt**: data stannar inom det lokala nätverket
-  - **Moln-vidarebefordrat**: data skickas även till Ayyeka Cloud
+- ✅ **Avkoda Protobuf binär telemetri** från Ayyeka Wavelets via MQTT
+- ✅ **Visualisera data lokalt** i ett Modbus-liknande dashboardgränssnitt
+- ✅ **Vidarebefordra telemetri till Ayyeka Cloud** med enhetsspecifika autentiseringsuppgifter
+- ✅ **Registrera enheter och tilldela Modbus-registermappningar**
+- ✅ **Exponera avkodade värden som Modbus-register** för externa system
+- ✅ **Dubbel driftläge**:
+  - **Endast lokalt**: all telemetri stannar i routern
+  - **Molnkopplad**: data vidarebefordras även till Ayyeka Cloud
 
 ---
 
 ## 🖥️ Dashboard-gränssnitt
 
-### 1. **Modbus Dashboard – Huvudvy**
+### 1. **Modbus Dashboard – Huvudgränssnitt**
 
-Används för att visualisera data, lista anslutna enheter och interagera med dem.
+Används för att visualisera data, visa alla anslutna enheter och interagera med dem.
 
-![Dashboard-vy](/images/modbus-dashboard-view.png)
+![Dashboardvy](/images/modbus-dashboard-view.png)
 
 ---
 
-### 2. **Registervy för enheter**
+### 2. **Registervy för enhet**
 
-Visar detaljerad registermappning för en vald enhet – inklusive sensortyp, skalade värden, enheter och registeradresser.
+Visar detaljerade Modbus-register för en vald enhet, inklusive sensortyp, skalade värden, enheter och adresser.
 
 ![Registervy](/images/modbus_register_view.png)
 
@@ -48,36 +47,33 @@ Visar detaljerad registermappning för en vald enhet – inklusive sensortyp, sk
 
 ### 3. **Enhetshantering**
 
-Hantera upptäckta och bekräftade enheter. Här kan du ta bort eller döpa om enheter, samt tilldela slav-ID:n.
+Används för att hantera upptäckta och bekräftade enheter. Här kan du ta bort, byta namn eller tilldela slave-ID:n.
 
 ![Enhetshantering](/images/device_management_overview.png)
 
 ---
 
-### 4. **Molnvariant – Ayyeka Cloud**
+### 4. **Molnvariant – Ayyeka Cloud UI**
 
-När vidarebefordran är aktiverad syns data också i **Ayyeka Cloud-portalen**.
-
-(Bild saknas, men du kan lägga till den om du vill)
+När vidarebefordran är aktiverad visas data även i **Ayyeka Cloud-plattformen**.
 
 ---
 
 ## 🔀 Gränssnittsvarianter
 
-| Variant              | Beskrivning                                                                 |
-|----------------------|-----------------------------------------------------------------------------|
-| 🟢 **Endast lokalt**      | All telemetri avkodas och används lokalt för Modbus och UI, inget skickas till molnet. |
-| ☁️ **Ayyeka-vidarebefordrat** | Telemetri skickas även vidare som rå Protobuf (plus `reportend`) till Ayyeka Cloud.  |
+| Variant             | Beskrivning                                                                      |
+|---------------------|-----------------------------------------------------------------------------------|
+| 🟢 **Endast lokalt**     | All telemetri avkodas och används lokalt i Modbus + UI, inget moln inblandat.      |
+| ☁️ **Ayyeka-vidarebefordran** | Telemetrin vidarebefordras även som RAW Protobuf (plus `reportend`) till molnet. |
 
-Båda varianterna delar samma UI och MQTT-avkodningslogik. Skillnaden ligger i huruvida data skickas vidare till molnet eller inte.
+Båda varianterna använder samma användargränssnitt och MQTT-avkodning. Enda skillnaden är om vidarebefordran till molnet är aktiverad.
 
 ---
 
 ## 📬 Kontakt
 
-**Acandia AB**  
-📧 [info@acandia.se](mailto:info@acandia.se)  
-🌐 https://www.acandia.se
+Acandia AB – [info@acandia.se](mailto:info@acandia.se)  
+🔗 https://www.acandia.se
 
 ---
 
